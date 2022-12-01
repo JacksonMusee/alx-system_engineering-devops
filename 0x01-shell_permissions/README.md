@@ -4,3 +4,4 @@ Whoami - show user
 Change owner of hello
 Create empty file
 Make executable
+Multiple permissions 
