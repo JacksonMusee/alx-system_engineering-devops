@@ -4,3 +4,4 @@ This script will print working directory
 4-listmorefiles lists files in long format including hidden files
 List long format with owners
 Create directory
+7-movethatfile moves files
