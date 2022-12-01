@@ -5,3 +5,4 @@ This script will print working directory
 List long format with owners
 Create directory
 7-movethatfile moves files
+8-firstdelete - Deletes betty
