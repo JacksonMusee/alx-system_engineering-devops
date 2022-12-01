@@ -5,3 +5,4 @@ Change owner of hello
 Create empty file
 Make executable
 Multiple permissions 
+7-everybody - Add permissions
