@@ -8,3 +8,4 @@ Create directory
 8-firstdelete - Deletes betty
 9-firstdirdeletion - Deletes my_first_directory
 10-Back - Take you to previous dir
+11-lists -List files in directories
