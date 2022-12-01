@@ -9,3 +9,4 @@ Create directory
 9-firstdirdeletion - Deletes my_first_directory
 10-Back - Take you to previous dir
 11-lists -List files in directories
+Check file type
