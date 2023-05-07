@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #Ping an address five times
-if [ $# -eq 0 ] then;
+if [ $# -eq 0 ]; then
 	echo "Usage: $0 {IP_ADDRESS}"
-	exit(1)
+	exit 1
 fi
 
-ping -c 5 $1
+ping -c 5 "$1"
