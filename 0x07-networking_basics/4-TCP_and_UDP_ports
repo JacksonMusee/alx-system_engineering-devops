@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-#List all listening ports and process IDs to which they belong
-netstat -lp
