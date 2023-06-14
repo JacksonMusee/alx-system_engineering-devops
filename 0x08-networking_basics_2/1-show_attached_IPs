@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-#List all IPv4 adress in thi machine
-ifconfig | awk -F "[: ]+"
