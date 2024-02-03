@@ -1,2 +1,2 @@
 #!/usr/bin/env ruby
-puts ARGV[0].scan(/Let Mr. Plessis do his job/).join 
+puts ARGV[0].scan(/\[from:(.*)\]\s\[to:(.*)\]\s\[flags:([^\]]*)/).flatten.join(',')
