@@ -1,7 +1,7 @@
 #Kills a process named killmenow
 
 exec { 'killmenow':
-    command     => 'pkill killmenow',
+    command     => '/usr/bin/pkill killmenow',
     refreshonly => true,
-    onlyif      => 'pgrep killmenow'
+    onlyif      => '/usr/bin/pgrep killmenow'
 }
