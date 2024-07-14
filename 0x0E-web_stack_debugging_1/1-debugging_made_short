@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#Create a symbolc link, restart and stop
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
+service nginx restart
+kill "$(pgrep 'nginx' | head -1)"
