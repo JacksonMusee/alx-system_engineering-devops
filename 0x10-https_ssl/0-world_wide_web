@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+#Script to audit subdomains
+# Function to display information about a subdomain
+display_record_info() {
+    local subdomain="$1"
+    local record_type="$2"
+    local destination="$3"
+    echo "The subdomain $subdomain is a $record_type record and points to $destination"
+}
+
+# Function to query DNS records and display information for a specific subdomain
+audit_subdomain() {
+    local domain="$1"
+    local subdomain="$2"
+    local output=$(dig +short -t A "$subdomain.$domain")
+    local record_type=$(echo "$output" | awk 'NF{exit 0}{exit 1}' && echo "A" || echo "CNAME")
+    local destination=$(echo "$output" | awk '{ print $1 }')
+    display_record_info "$subdomain" "$record_type" "$destination"
+}
+
+# Main function to audit subdomains
+audit_domain() {
+    local domain="$1"
+    local subdomains=("www" "lb-01" "web-01" "web-02")
+    
+    # If subdomain parameter is provided, display information for that subdomain
+    if [ $# -eq 2 ]; then
+        audit_subdomain "$domain" "$2"
+    else
+        # Display information for default subdomains
+        for subdomain in "${subdomains[@]}"; do
+            audit_subdomain "$domain" "$subdomain"
+        done
+    fi
+}
+
+# Check if domain parameter is provided
+if [ $# -lt 1 ]; then
+    echo "Usage: $0 <domain> [subdomain]"
+    exit 1
+fi
+
+# Call main function to audit subdomains
+audit_domain "$@"
+
