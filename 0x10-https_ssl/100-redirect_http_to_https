@@ -36,7 +36,7 @@ defaults
 
     frontend http_front
         bind *:80
-        bind *:443 ssl crt /etc/letsencrypt/live/www.cityspaces.tech/full_cert.pem
+        bind *:443 ssl crt /etc/letsencrypt/live/www.cityspaces.tech/combined.pem
         http-request redirect scheme https unless { ssl_fc }
         default_backend http_back
 
