@@ -43,5 +43,5 @@ defaults
     backend http_back
         mode http
         balance roundrobin
-        server 193236-web-01 100.26.247.135:80 check
-        server 193236-web-02 18.235.248.212:80 check
+        server 193236-web-01 100.24.238.120:80 check
+        server 193236-web-02 3.85.16.187:80 check
