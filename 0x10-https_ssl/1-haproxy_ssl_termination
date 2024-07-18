@@ -35,12 +35,11 @@ defaults
 
 
     frontend http_front
-        bind *:80
-        bind *:443 ssl crt /etc/letsencrypt/live/www.cityspaces.tech/full_cert.pem
+        bind *:443 ssl crt /etc/letsencrypt/live/www.cityspaces.tech/fullchain.pem key /etc/letsencrypt/live/www.cityspaces.tech/privkey.pem
         default_backend http_back
 
     backend http_back
         mode http
         balance roundrobin
-        server 193236-web-01 100.26.247.135:80 check
-        server 193236-web-02 18.235.248.212:80 check
+        server 193236-web-01 100.24.238.120:80 check
+        server 193236-web-02 3.85.16.187:80 check
