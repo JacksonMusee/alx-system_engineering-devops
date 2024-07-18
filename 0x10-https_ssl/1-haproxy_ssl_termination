@@ -35,6 +35,7 @@ defaults
 
 
     frontend http_front
+        bind *:80
         bind *:443 ssl crt /etc/letsencrypt/live/www.cityspaces.tech/fullchain.pem key /etc/letsencrypt/live/www.cityspaces.tech/privkey.pem
         default_backend http_back
 
