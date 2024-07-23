@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#Script to create mysql backup
+
+MYSQL_DUMP_FILE="backup.sql"
+
+CURRENT_DATE=$(date +"%d-%m-%Y")
+
+ARCHIVE_NAME="$CURRENT_DATE.tar.gz"
+
+mysqldump -u root -p"$1" --all-databases > "$MYSQL_DUMP_FILE"
+
+tar -czf "$ARCHIVE_NAME" "$MYSQL_DUMP_FILE"
