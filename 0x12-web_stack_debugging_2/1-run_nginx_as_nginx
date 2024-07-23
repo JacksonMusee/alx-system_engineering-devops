@@ -1,0 +1,23 @@
+#!/usr/bin/bash
+#Free port 8080 from apache
+sudo pkill "apache2"
+
+#Remove any existing user
+sudo sed -i '/^user /d' /etc/nginx/nginx.conf
+
+#Set user to nginx
+sudo sed -i '1i user nginx;' /etc/nginx/nginx.conf
+
+#Update user port to 8080
+sudo sed -i 's/listen 80;/listen 8080;/' /etc/nginx/sites-available/default
+
+# Ensure the nginx user exists
+if ! id -u nginx > /dev/null 2>&1; then
+    useradd -r -d /var/www -s /sbin/nologin nginx
+fi
+
+# Set proper permissions for the nginx
+sudo chmod 644 /etc/nginx/nginx.conf
+
+# Restart Nginx to apply changes
+sudo -u nginx service nginx restart
