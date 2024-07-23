@@ -33,14 +33,12 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
 
-
-    frontend http_front
-        bind *:80
-        bind *:443 ssl crt /etc/letsencrypt/live/www.cityspaces.tech/full_cert.pem
+frontend http_front
+        bind *:443 ssl crt /etc/letsencrypt/live/www.cityspaces.tech/combined.pem
         default_backend http_back
 
-    backend http_back
+backend http_back
         mode http
         balance roundrobin
-        server 193236-web-01 100.26.247.135:80 check
-        server 193236-web-02 18.235.248.212:80 check
+        server 193236-web-01 100.24.238.120:80 check
+        server 193236-web-02 3.85.16.187:80 check
