@@ -9,7 +9,7 @@ sudo sed -i '/^user /d' /etc/nginx/nginx.conf
 sudo sed -i '1i user nginx;' /etc/nginx/nginx.conf
 
 #Update user port to 8080
-sudo sed -i 's/listen 80;/listen 8080;/' /etc/nginx/sites-available/default
+sudo sed -i 's/\<80\>/&80/' /etc/nginx/sites-available/default
 
 # Ensure the nginx user exists
 if ! id -u nginx > /dev/null 2>&1; then
