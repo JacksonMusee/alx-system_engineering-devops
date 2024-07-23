@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 #Free port 8080 from apache
-sudo pkill "apache2"
+sudo pkill apache2
 
 #Remove any existing user
 sudo sed -i '/^user /d' /etc/nginx/nginx.conf
