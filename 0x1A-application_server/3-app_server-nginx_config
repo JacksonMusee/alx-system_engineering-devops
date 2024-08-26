@@ -1,0 +1,17 @@
+server {
+
+    listen 80;
+
+    server_name 127.0.0.1 cityspaces.tech www.cityspaces.tech 3.85.16.187 100.24.238.120;
+
+    location /airbnb-onepage/ {
+        proxy_pass http://127.0.0.1:5000;
+        include proxy_params;
+    }
+
+    location /airbnb-dynamic/number_odd_or_even/ {
+        rewrite ^/airbnb-dynamic/(.*)$ /$1 break;
+        proxy_pass http://127.0.0.1:5001;
+        include proxy_params;
+    }
+}
